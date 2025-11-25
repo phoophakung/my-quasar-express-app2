@@ -1,19 +1,15 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
-</template>
-
-<script setup>
-//
-</script>
-<template>
   <div class="q-pa-md">
-    <q-checkbox v-model="val" />
+    <div class="q-gutter-sm">
+      <q-radio v-model="shape" val="line" label="Line" />
+      <q-radio v-model="shape" val="rectangle" label="Rectangle" />
+      <q-radio v-model="shape" val="ellipse" label="Ellipse" />
+      <q-radio v-model="shape" val="polygon" label="Polygon" />
+    </div>
+
+    <div class="q-px-sm">
+      Your selection is: <strong>{{ shape }}</strong>
+    </div>
   </div>
 </template>
 
@@ -23,7 +19,7 @@ import { ref } from 'vue'
 export default {
   setup () {
     return {
-      val: ref(true)
+      shape: ref('line')
     }
   }
 }
